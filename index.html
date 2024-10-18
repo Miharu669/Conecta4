@@ -6,15 +6,18 @@
     <title>Conecta 4</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="flex flex-col items-center p-4 bg-gray-800 mt-20">
-    <div id="game" class="flex flex-col items-center">
-        <div id="board" class="flex flex-col justify-end"></div>
-        <div class="controls mt-4">
-            <button id="resetGame" class="bg-gray-800 text-white py-2 px-4 rounded-full mr-2 border-2 hover:bg-white hover:text-gray-800 hover:border-gray-800">Reset Game</button>
-            <button id="resetScore" class="bg-gray-800 text-white py-2 px-4 rounded-full border-2 hover:bg-white hover:text-gray-800 hover:border-gray-800">Reset Score</button>
-            <div class="mt-2">
-                <p class="text-lg text-gray-400">Red Wins: <span id="redWins" class="font-bold">0</span></p>
-                <p class="text-lg text-gray-400">Yellow Wins: <span id="yellowWins" class="font-bold">0</span></p>
+<body class="flex flex-col items-center p-4 bg-gray-800">
+    <div class="bg-gray-500 p-20 rounded-xl mt-16">
+
+        <div id="game" class="flex flex-col items-center">
+            <div id="board" class="flex flex-col justify-end"></div>
+            <div class="controls mt-4">
+                <button id="resetGame" class="bg-gray-800 text-white py-2 px-4 rounded-full mr-2 border-2 hover:bg-gray-500 hover:text-gray-800 hover:border-gray-800">Reset Game</button>
+                <button id="resetScore" class="bg-gray-800 text-white py-2 px-4 rounded-full border-2 hover:bg-gray-500 hover:text-gray-800 hover:border-gray-800">Reset Score</button>
+                <div class="mt-4 text-center">
+                    <p class="text-lg text-gray-900">Red Wins: <span id="redWins" class="font-bold">0</span></p>
+                    <p class="text-lg text-gray-900">Yellow Wins: <span id="yellowWins" class="font-bold">0</span></p>
+                </div>
             </div>
         </div>
     </div>
