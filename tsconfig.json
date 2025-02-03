@@ -1,12 +1,11 @@
 {
     "compilerOptions": {
-      "target": "es2015", 
-      "module": "esnext",
-      "strict": true,
+      "target": "es2015",
+    "lib": ["es2015", "dom"],
+    "module": "commonjs",
       "esModuleInterop": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
-      "lib": ["es2015", "dom"] 
     },
     "include": [
       "*.ts"  

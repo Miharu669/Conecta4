@@ -1,6 +1,14 @@
-const rows = 6;
-const cols = 7;
-let board: (string | null)[][] = Array.from({ length: rows }, () => Array(cols).fill(null));
+const rows: number = 6;
+const cols: number = 7;
+
+let board: (string | null)[][] = [];
+
+for (let i = 0; i < rows; i++) {
+    board[i] = [];
+    for (let j = 0; j < cols; j++) {
+        board[i][j] = null;
+    }
+}
 let currentPlayer: string = 'red';
 let redWins: number = 0;
 let yellowWins: number = 0;
@@ -11,7 +19,7 @@ const yellowWinsElement = document.getElementById('yellowWins')!;
 const resetGameButton = document.getElementById('resetGame')!;
 const resetScoreButton = document.getElementById('resetScore')!;
 
-function drawBoard() {
+function drawBoard(): void {
     boardElement.innerHTML = ''; 
     for (let row = 0; row < rows; row++) {
         const rowElement = document.createElement('div');
@@ -30,7 +38,7 @@ function drawBoard() {
     }
 }
 
-function dropPiece(col: number) {
+function dropPiece(col: number): void {
     for (let row = rows - 1; row >= 0; row--) {
         if (!board[row][col]) {
             board[row][col] = currentPlayer;
@@ -52,7 +60,6 @@ function dropPiece(col: number) {
 }
 
 function checkWinner(player: string): boolean {
-    
     for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols - 3; col++) {
             if (board[row][col] === player &&
@@ -64,7 +71,6 @@ function checkWinner(player: string): boolean {
         }
     }
 
-   
     for (let col = 0; col < cols; col++) {
         for (let row = 0; row < rows - 3; row++) {
             if (board[row][col] === player &&
@@ -76,7 +82,6 @@ function checkWinner(player: string): boolean {
         }
     }
 
-   
     for (let row = 0; row < rows - 3; row++) {
         for (let col = 0; col < cols - 3; col++) {
             if (board[row][col] === player &&
@@ -88,7 +93,6 @@ function checkWinner(player: string): boolean {
         }
     }
 
-   
     for (let row = 3; row < rows; row++) {
         for (let col = 0; col < cols - 3; col++) {
             if (board[row][col] === player &&
@@ -103,19 +107,26 @@ function checkWinner(player: string): boolean {
     return false;
 }
 
-function resetGame() {
-    board = Array.from({ length: rows }, () => Array(cols).fill(null));
+function resetGame(): void {
+    board = [];
+    for (let i = 0; i < rows; i++) {
+        board[i] = [];
+        for (let j = 0; j < cols; j++) {
+            board[i][j] = null;
+        }
+    }
+    
     currentPlayer = 'red';
     drawBoard();
 }
 
-function resetScore() {
+function resetScore(): void {
     redWins = 0;
     yellowWins = 0;
     updateScore();
 }
 
-function updateScore() {
+function updateScore(): void {
     redWinsElement.textContent = redWins.toString();
     yellowWinsElement.textContent = yellowWins.toString();
 }
